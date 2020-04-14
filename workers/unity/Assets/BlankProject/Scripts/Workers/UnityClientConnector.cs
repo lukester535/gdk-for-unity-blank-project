@@ -1,6 +1,7 @@
 using System;
 using Improbable.Gdk.Core;
 using Improbable.Gdk.PlayerLifecycle;
+using Improbable.Gdk.GameObjectCreation;
 using UnityEngine;
 
 namespace BlankProject
@@ -42,6 +43,7 @@ namespace BlankProject
         protected override void HandleWorkerConnectionEstablished()
         {
             PlayerLifecycleHelper.AddClientSystems(Worker.World);
+            GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
         }
     }
 }

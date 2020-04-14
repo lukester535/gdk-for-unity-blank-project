@@ -1,6 +1,7 @@
 using BlankProject.Scripts.Config;
 using Improbable.Gdk.Core;
 using Improbable.Gdk.PlayerLifecycle;
+using Improbable.Gdk.GameObjectCreation;
 using Improbable.Worker.CInterop;
 using UnityEngine;
 
@@ -41,6 +42,7 @@ namespace BlankProject
         {
             Worker.World.GetOrCreateSystem<MetricSendSystem>();
             PlayerLifecycleHelper.AddServerSystems(Worker.World);
+            GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
         }
     }
 }

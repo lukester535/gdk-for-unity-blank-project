@@ -8,7 +8,8 @@
         "Improbable.Gdk.QueryBasedInterestHelper",
         "Unity.Entities",
         "Unity.Entities.Hybrid",
-        "Unity.Mathematics"
+        "Unity.Mathematics",
+        "Improbable.Gdk.GameObjectCreation"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -17,5 +18,6 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": []
+    "versionDefines": [],
+    "noEngineReferences": false
 }
