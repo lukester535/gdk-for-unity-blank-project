@@ -2,6 +2,8 @@ using Improbable;
 using Improbable.Gdk.Core;
 using Improbable.Gdk.PlayerLifecycle;
 using Improbable.Gdk.QueryBasedInterest;
+using UnityEngine;
+using SpatialosGame;
 
 namespace BlankProject.Scripts.Config
 {
@@ -13,7 +15,8 @@ namespace BlankProject.Scripts.Config
             var serverAttribute = UnityGameLogicConnector.WorkerType;
 
             var template = new EntityTemplate();
-            template.AddComponent(new Position.Snapshot(), clientAttribute);
+            template.AddComponent(new SpatialosGame.PlayerTransform.Snapshot(), clientAttribute);
+            template.AddComponent(new Position.Snapshot(), serverAttribute);
             template.AddComponent(new Metadata.Snapshot("Player"), serverAttribute);
 
             PlayerLifecycleHelper.AddPlayerLifecycleComponents(template, workerId, serverAttribute);
@@ -33,6 +36,19 @@ namespace BlankProject.Scripts.Config
             template.SetComponentWriteAccess(EntityAcl.ComponentId, serverAttribute);
 
             return template;
+        }
+
+        public static EntityTemplate PlayerCreator(EntityId entityId, string workerId, byte[] serializedArguments, Vector3 position, uint healthValue)
+        {
+            // Create a HealthPickup component snapshot which is initially active and grants "heathValue" on pickup.
+            var entityTemplate = new EntityTemplate();
+            var clientAttribute = EntityTemplate.GetWorkerAccessAttribute(workerId);
+            var serverAttribute = UnityGameLogicConnector.WorkerType;
+
+            //entityTemplate.AddComponent(new SpatialosGame.PlayerTransform.Snapshot(), clientAttribute);
+            entityTemplate.AddComponent(new Metadata.Snapshot("PlayerController"), serverAttribute);
+
+            return entityTemplate;
         }
     }
 }

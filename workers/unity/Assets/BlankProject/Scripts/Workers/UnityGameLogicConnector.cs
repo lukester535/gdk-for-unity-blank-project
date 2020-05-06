@@ -4,12 +4,18 @@ using Improbable.Gdk.PlayerLifecycle;
 using Improbable.Gdk.GameObjectCreation;
 using Improbable.Worker.CInterop;
 using UnityEngine;
+using System;
+using System.Security.Cryptography;
+using Improbable;
+using Improbable.Gdk.Subscriptions;
 
 namespace BlankProject
 {
     public class UnityGameLogicConnector : WorkerConnector
     {
         public const string WorkerType = "UnityGameLogic";
+        [Require] private PositionWriter positionWriter;
+        //[Require] private PlayerTransformReader playerTransformReader;
 
         private async void Start()
         {
@@ -43,6 +49,21 @@ namespace BlankProject
             Worker.World.GetOrCreateSystem<MetricSendSystem>();
             PlayerLifecycleHelper.AddServerSystems(Worker.World);
             GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
+        }
+
+        private void Update()
+        {
+            /*
+            if (positionWriter != null)
+            {
+                var positionUpdate = new Position.Update
+                {
+                    X = new Vector3f(4, 5, 2)
+                };
+
+                // Send component update to the SpatialOS Runtime
+                playerTransformWriter.SendUpdate(transformUpdate);
+            */
         }
     }
 }
