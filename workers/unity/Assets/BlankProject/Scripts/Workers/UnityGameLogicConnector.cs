@@ -14,7 +14,7 @@ namespace BlankProject
     public class UnityGameLogicConnector : WorkerConnector
     {
         public const string WorkerType = "UnityGameLogic";
-        [Require] private PositionWriter positionWriter;
+        //[Require] private PositionWriter positionWriter;
         //[Require] private PlayerTransformReader playerTransformReader;
 
         private async void Start()
@@ -51,8 +51,8 @@ namespace BlankProject
             GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
         }
 
-        private void Update()
-        {
+        //private void Update()
+        //{
             /*
             if (positionWriter != null)
             {
@@ -64,6 +64,6 @@ namespace BlankProject
                 // Send component update to the SpatialOS Runtime
                 playerTransformWriter.SendUpdate(transformUpdate);
             */
-        }
+        //}
     }
 }

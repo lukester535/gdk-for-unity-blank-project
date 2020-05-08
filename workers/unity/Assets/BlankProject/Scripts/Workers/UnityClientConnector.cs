@@ -1,8 +1,14 @@
 using System;
+using BlankProject.Scripts.Config;
 using Improbable.Gdk.Core;
 using Improbable.Gdk.PlayerLifecycle;
 using Improbable.Gdk.GameObjectCreation;
+using Improbable.Worker.CInterop;
 using UnityEngine;
+using System.Diagnostics;
+using System.Security.Cryptography;
+using Improbable;
+using Improbable.Gdk.Subscriptions;
 
 namespace BlankProject
 {
@@ -42,8 +48,12 @@ namespace BlankProject
 
         protected override void HandleWorkerConnectionEstablished()
         {
-            PlayerLifecycleHelper.AddClientSystems(Worker.World);
-            GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
+                PlayerLifecycleHelper.AddClientSystems(Worker.World);
+                GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
+                UnityEngine.Debug.Log("Hrm");
         }
+
+
+
     }
 }

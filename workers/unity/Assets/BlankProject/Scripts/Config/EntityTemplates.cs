@@ -38,6 +38,7 @@ namespace BlankProject.Scripts.Config
             return template;
         }
 
+        /*
         public static EntityTemplate PlayerCreator(EntityId entityId, string workerId, byte[] serializedArguments, Vector3 position, uint healthValue)
         {
             // Create a HealthPickup component snapshot which is initially active and grants "heathValue" on pickup.
@@ -50,5 +51,6 @@ namespace BlankProject.Scripts.Config
 
             return entityTemplate;
         }
+        */
     }
 }

@@ -225,6 +225,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClientWorker
       objectReference: {fileID: 0}
+    - target: {fileID: 7557874807969014890, guid: 160a9a4e2c1d16a4a883f915c10498a0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7557874807969014891, guid: 160a9a4e2c1d16a4a883f915c10498a0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -367,6 +372,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameLogicWorker
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126696593424655034, guid: 43c846c58bf01564d8a10b8fa8dd9146,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2126696593424655035, guid: 43c846c58bf01564d8a10b8fa8dd9146,
         type: 3}
