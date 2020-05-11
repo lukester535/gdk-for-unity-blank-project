@@ -7,16 +7,15 @@ using Improbable.Gdk.Core;
 using Improbable.Gdk.Subscriptions;
 using System.Collections.Specialized;
 using System.Security.Policy;
-using System;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementReader : MonoBehaviour
 {
-    [Require] private PlayerTransformWriter playerTransformWriter;
+    [Require] private PlayerTransformReader playerTransformReader;
 
 
     void OnEnable()
     {
-        UnityEngine.Debug.Log("I have write access! GameObject: " + gameObject.name);
+        UnityEngine.Debug.Log("I have read access! GameObject: " + gameObject.name);
         // The MonoBehaviour is automatically enabled and disabled based on
         // whether requirements for your injected types are met.
         // OnEnable() is only called when healthReader is available.
@@ -32,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter()
     {
-        if (playerTransformWriter != null)
+        if (playerTransformReader != null)
         {
             // OnTriggerEnter() can be called even if the MonoBehaviour
             // is disabled. You need to check whether the reader is available.
@@ -41,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter()
     {
-        if (playerTransformWriter != null)
+        if (playerTransformReader != null)
         {
             // OnCollisionEnter() can be called even if the MonoBehaviour
             // is disabled. You need to check whether the reader is available.
@@ -54,24 +53,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (playerTransformWriter != null)
+        if (playerTransformReader != null)
         {
-            var moveVector = new Vector3(Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal")) * Time.deltaTime;
-            // Create a new Health.Update object
-            var Pos = transform.position;
-            var Rot = transform.rotation;
-            var transformUpdate = new PlayerTransform.Update
-            {
-                Position = Vec3ToVec3f(moveVector),
-                Rotation = new Vector3f(Rot.x, Rot.y, Rot.z)
-            };
-
-            // Send component update to the SpatialOS Runtime
-            playerTransformWriter.SendUpdate(transformUpdate);
+            //transform.position = Vec3ftoVec3(playerTransformReader.Data.Position);
         }
     }
-    Improbable.Vector3f Vec3ToVec3f(Vector3 Vec)
+
+    Vector3 Vec3ftoVec3(Improbable.Vector3f Vec)
     {
-        return new Vector3f(Vec.x, Vec.y, Vec.z);
+        return new Vector3(Vec.X, Vec.Y, Vec.Z);
     }
 }

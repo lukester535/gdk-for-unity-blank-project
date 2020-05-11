@@ -18,6 +18,8 @@ namespace BlankProject
 
         private async void Start()
         {
+            PlayerLifecycleConfig.CreatePlayerEntityTemplate = EntityTemplates.CreatePlayerEntityTemplate;
+
             var connParams = CreateConnectionParameters(WorkerType);
 
             var builder = new SpatialOSConnectionHandlerBuilder()
@@ -50,7 +52,6 @@ namespace BlankProject
         {
                 PlayerLifecycleHelper.AddClientSystems(Worker.World);
                 GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
-                UnityEngine.Debug.Log("Hrm");
         }
 
 
