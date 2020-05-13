@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.blankproject.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\theco\\Desktop\\SpatialOS-game\\gdk-for-unity-blank-project\\workers\\unity\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Blank Project [Testing]"
+        }
+      }
+    }
+  ]
+}
