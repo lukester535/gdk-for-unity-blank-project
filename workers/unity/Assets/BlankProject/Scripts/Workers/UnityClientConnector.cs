@@ -18,7 +18,6 @@ namespace BlankProject
 
         private async void Start()
         {
-            PlayerLifecycleConfig.CreatePlayerEntityTemplate = EntityTemplates.CreatePlayerEntityTemplate;
 
             var connParams = CreateConnectionParameters(WorkerType);
 
@@ -51,7 +50,8 @@ namespace BlankProject
         protected override void HandleWorkerConnectionEstablished()
         {
                 PlayerLifecycleHelper.AddClientSystems(Worker.World);
-                GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
+                
+                GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World, new GameObjectCreatorAuthority(Worker.WorkerType, Worker.Origin, Worker.LogDispatcher, Worker.World));
         }
 
 

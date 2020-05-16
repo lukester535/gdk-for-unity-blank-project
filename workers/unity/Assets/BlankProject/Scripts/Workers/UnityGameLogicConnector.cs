@@ -48,7 +48,7 @@ namespace BlankProject
         {
             Worker.World.GetOrCreateSystem<MetricSendSystem>();
             PlayerLifecycleHelper.AddServerSystems(Worker.World);
-            GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World);
+            GameObjectCreationHelper.EnableStandardGameObjectCreation(Worker.World, new GameObjectCreatorAuthority(Worker.WorkerType, Worker.Origin, Worker.LogDispatcher, Worker.World));
         }
 
         //private void Update()
