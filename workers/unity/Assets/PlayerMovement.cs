@@ -63,11 +63,11 @@ public class PlayerMovement : MonoBehaviour
             var transformUpdate = new PlayerTransform.Update
             {
                 Position = Vec3ToVec3f(camera.position + head.position),
-                Rotation = Vec3ToVec3f(camera.rotation * Vector3.forward),
+                Rotation = QuatToQuatf(camera.rotation),
                 Lposition = Vec3ToVec3f(leftHand.position),
-                Lrotation = Vec3ToVec3f(leftHand.rotation * Vector3.forward),
+                Lrotation = QuatToQuatf(leftHand.rotation),
                 Rposition = Vec3ToVec3f(rightHand.position),
-                Rrotation = Vec3ToVec3f(new Vector3(rightHand.rotation.x, rightHand.rotation.y, rightHand.rotation.z))
+                Rrotation = QuatToQuatf(rightHand.rotation)
             };
 
             // Send component update to the SpatialOS Runtime
@@ -77,5 +77,9 @@ public class PlayerMovement : MonoBehaviour
     Improbable.Vector3f Vec3ToVec3f(Vector3 Vec)
     {
         return new Vector3f(Vec.x, Vec.y, Vec.z);
+    }
+    Improbable.Quaternionf QuatToQuatf(Quaternion Quat)
+    {
+        return new Quaternionf(Quat.x,Quat.y,Quat.z,Quat.w);
     }
 }

@@ -57,12 +57,12 @@ public class PlayerMovementReader : MonoBehaviour
     {
         if (serverTransformReader != null)
         {
-            head.transform.position = Vec3ftoVec3(serverTransformReader.Data.Position);
-            head.transform.rotation = Quaternion.Euler(Vec3ftoVec3(serverTransformReader.Data.Rotation));
-            leftHand.transform.position = Vec3ftoVec3(serverTransformReader.Data.Lposition);
-            leftHand.transform.rotation = Vec3ftoQuat(serverTransformReader.Data.Lrotation);
-            rightHand.transform.position = Vec3ftoVec3(serverTransformReader.Data.Rposition);
-            rightHand.transform.rotation = Vec3ftoQuat(serverTransformReader.Data.Rrotation);
+            head.transform.localPosition = Vec3ftoVec3(serverTransformReader.Data.Position);
+            head.transform.rotation = QuatftoQuat(serverTransformReader.Data.Rotation);
+            leftHand.transform.localPosition = Vec3ftoVec3(serverTransformReader.Data.Lposition);
+            leftHand.transform.rotation = QuatftoQuat(serverTransformReader.Data.Lrotation);
+            rightHand.transform.localPosition = Vec3ftoVec3(serverTransformReader.Data.Rposition);
+            rightHand.transform.rotation = QuatftoQuat(serverTransformReader.Data.Rrotation);
         }
     }
 
@@ -70,8 +70,8 @@ public class PlayerMovementReader : MonoBehaviour
     {
         return new Vector3(Vec.X, Vec.Y, Vec.Z);
     }
-    Quaternion Vec3ftoQuat(Improbable.Vector3f Vec)
+    Quaternion QuatftoQuat(Improbable.Quaternionf Quat)
     {
-        return Quaternion.Euler(Vec.X * 360, Vec.Y * 360, Vec.Z * 360);
+        return new Quaternion(Quat.X, Quat.Y, Quat.Z, Quat.W);
     }
 }

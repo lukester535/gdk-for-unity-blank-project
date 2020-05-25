@@ -11,3 +11,10 @@ type Vector3d {
   double y = 2;
   double z = 3;
 }
+
+type Quaternionf {
+  float x = 1;
+  float y = 2;
+  float z = 3;
+  float w = 4;
+}
