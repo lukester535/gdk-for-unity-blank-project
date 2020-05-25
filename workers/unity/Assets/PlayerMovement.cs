@@ -12,6 +12,10 @@ using System;
 public class PlayerMovement : MonoBehaviour
 {
     [Require] private PlayerTransformWriter playerTransformWriter;
+    public Transform head;
+    public Transform camera;
+    public Transform leftHand;
+    public Transform rightHand;
 
 
     void OnEnable()
@@ -56,14 +60,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerTransformWriter != null)
         {
-            var moveVector = new Vector3(Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal")) * Time.deltaTime;
-            // Create a new Health.Update object
-            var Pos = transform.position;
-            var Rot = transform.rotation;
             var transformUpdate = new PlayerTransform.Update
             {
-                Position = Vec3ToVec3f(moveVector),
-                Rotation = new Vector3f(Rot.x, Rot.y, Rot.z)
+                Position = Vec3ToVec3f(camera.position + head.position),
+                Rotation = Vec3ToVec3f(camera.rotation * Vector3.forward),
+                Lposition = Vec3ToVec3f(leftHand.position),
+                Lrotation = Vec3ToVec3f(leftHand.rotation * Vector3.forward),
+                Rposition = Vec3ToVec3f(rightHand.position),
+                Rrotation = Vec3ToVec3f(new Vector3(rightHand.rotation.x, rightHand.rotation.y, rightHand.rotation.z))
             };
 
             // Send component update to the SpatialOS Runtime

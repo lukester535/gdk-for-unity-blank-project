@@ -10,8 +10,10 @@ using System.Security.Policy;
 
 public class PlayerMovementReader : MonoBehaviour
 {
-    [Require] private PlayerTransformReader playerTransformReader;
-
+    [Require] private ServerTransformReader serverTransformReader;
+    public GameObject head;
+    public GameObject leftHand;
+    public GameObject rightHand;
 
     void OnEnable()
     {
@@ -31,7 +33,7 @@ public class PlayerMovementReader : MonoBehaviour
 
     void OnTriggerEnter()
     {
-        if (playerTransformReader != null)
+        if (serverTransformReader != null)
         {
             // OnTriggerEnter() can be called even if the MonoBehaviour
             // is disabled. You need to check whether the reader is available.
@@ -40,7 +42,7 @@ public class PlayerMovementReader : MonoBehaviour
 
     void OnCollisionEnter()
     {
-        if (playerTransformReader != null)
+        if (serverTransformReader != null)
         {
             // OnCollisionEnter() can be called even if the MonoBehaviour
             // is disabled. You need to check whether the reader is available.
@@ -53,14 +55,23 @@ public class PlayerMovementReader : MonoBehaviour
 
     private void Update()
     {
-        if (playerTransformReader != null)
+        if (serverTransformReader != null)
         {
-            //transform.position = Vec3ftoVec3(playerTransformReader.Data.Position);
+            head.transform.position = Vec3ftoVec3(serverTransformReader.Data.Position);
+            head.transform.rotation = Quaternion.Euler(Vec3ftoVec3(serverTransformReader.Data.Rotation));
+            leftHand.transform.position = Vec3ftoVec3(serverTransformReader.Data.Lposition);
+            leftHand.transform.rotation = Vec3ftoQuat(serverTransformReader.Data.Lrotation);
+            rightHand.transform.position = Vec3ftoVec3(serverTransformReader.Data.Rposition);
+            rightHand.transform.rotation = Vec3ftoQuat(serverTransformReader.Data.Rrotation);
         }
     }
 
     Vector3 Vec3ftoVec3(Improbable.Vector3f Vec)
     {
         return new Vector3(Vec.X, Vec.Y, Vec.Z);
+    }
+    Quaternion Vec3ftoQuat(Improbable.Vector3f Vec)
+    {
+        return Quaternion.Euler(Vec.X * 360, Vec.Y * 360, Vec.Z * 360);
     }
 }

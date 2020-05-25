@@ -16,6 +16,7 @@ namespace BlankProject.Scripts.Config
 
             var template = new EntityTemplate();
             template.AddComponent(new SpatialosGame.PlayerTransform.Snapshot(), clientAttribute);
+            template.AddComponent(new SpatialosGame.ServerTransform.Snapshot(), serverAttribute);
             template.AddComponent(new Position.Snapshot(), serverAttribute);
             template.AddComponent(new Metadata.Snapshot("Player"), clientAttribute);
 

@@ -12,7 +12,7 @@ using System;
 public class PlayerMovementServer : MonoBehaviour
 {
     [Require] private PlayerTransformReader playerTransformReader;
-    [Require] private PositionWriter positionWriter;
+    [Require] private ServerTransformWriter serverTransformWriter;
 
 
     void OnEnable()
@@ -57,13 +57,18 @@ public class PlayerMovementServer : MonoBehaviour
     {
         if (playerTransformReader != null)
         {
-            var transformUpdate = new Position.Update
+            var transformUpdate = new ServerTransform.Update
             {
-                Coords = Vec3toCoords(playerTransformReader.Data.Position)
+                Position = playerTransformReader.Data.Position,
+                Rotation = playerTransformReader.Data.Rotation,
+                Lposition = playerTransformReader.Data.Lposition,
+                Lrotation = playerTransformReader.Data.Lrotation,
+                Rposition = playerTransformReader.Data.Rposition,
+                Rrotation = playerTransformReader.Data.Rrotation
             };
 
             // Send component update to the SpatialOS Runtime
-            positionWriter.SendUpdate(transformUpdate);
+            serverTransformWriter.SendUpdate(transformUpdate);
         }
     }
 
