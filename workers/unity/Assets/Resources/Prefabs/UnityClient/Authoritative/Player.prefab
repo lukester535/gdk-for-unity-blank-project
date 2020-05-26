@@ -583,6 +583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 139253486028737882}
   - component: {fileID: 139253486034512982}
+  - component: {fileID: 1249023268423093762}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -638,6 +639,18 @@ MonoBehaviour:
     actionPath: /actions/default/in/HeadsetOnHead
     needsReinit: 1
   allowToggleTo2D: 1
+--- !u!114 &1249023268423093762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139253486028930338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed5e607f2984ad418db5b997828e4ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &139253486028931198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,6 +1961,7 @@ MonoBehaviour:
   camera: {fileID: 139253486028723530}
   leftHand: {fileID: 5239377567454512053}
   rightHand: {fileID: 4569314341351552459}
+  body: {fileID: 0}
 --- !u!1 &8557479764503124095
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,12 @@
         "Unity.Entities",
         "Unity.Entities.Hybrid",
         "Unity.Mathematics",
-        "Improbable.Gdk.GameObjectCreation"
+        "Improbable.Gdk.GameObjectCreation",
+        "SteamVR",
+        "SteamVR_Actions",
+        "SteamVR_Editor",
+        "SteamVR_Input_Editor",
+        "SteamVR_Windows_EditorHelper"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
