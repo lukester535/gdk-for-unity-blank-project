@@ -64,8 +64,9 @@ public class PlayerMovementReader : MonoBehaviour
             leftHand.transform.rotation = QuatftoQuat(serverTransformReader.Data.Lrotation);
             rightHand.transform.localPosition = Vec3ftoVec3(serverTransformReader.Data.Rposition);
             rightHand.transform.rotation = QuatftoQuat(serverTransformReader.Data.Rrotation);
-            rightHand.transform.localPosition = Vec3ftoVec3(serverTransformReader.Data.Bposition);
-            rightHand.transform.rotation = QuatftoQuat(serverTransformReader.Data.Brotation);
+            UnityEngine.Debug.Log(Vec3ftoVec3(serverTransformReader.Data.Bposition));
+            body.transform.localPosition = Vec3ftoVec3(serverTransformReader.Data.Bposition);
+            body.transform.rotation = QuatftoQuat(serverTransformReader.Data.Brotation);
         }
     }
 

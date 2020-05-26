@@ -63,11 +63,11 @@ public class PlayerMovement : MonoBehaviour
         {
             var transformUpdate = new PlayerTransform.Update
             {
-                Position = Vec3ToVec3f(camera.position + head.position),
+                Position = Vec3ToVec3f(camera.localPosition + head.localPosition),
                 Rotation = QuatToQuatf(camera.rotation),
-                Lposition = Vec3ToVec3f(leftHand.position),
+                Lposition = Vec3ToVec3f(leftHand.localPosition),
                 Lrotation = QuatToQuatf(leftHand.rotation),
-                Rposition = Vec3ToVec3f(rightHand.position),
+                Rposition = Vec3ToVec3f(rightHand.localPosition),
                 Rrotation = QuatToQuatf(rightHand.rotation),
                 Bposition = Vec3ToVec3f(body.position),
                 Brotation = QuatToQuatf(body.rotation)
