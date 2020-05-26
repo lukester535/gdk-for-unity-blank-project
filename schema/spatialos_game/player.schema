@@ -11,6 +11,9 @@ component PlayerTransform {
 
     improbable.Vector3f rposition = 5;
     improbable.Quaternionf rrotation = 6;
+
+    improbable.Vector3f bposition = 7;
+    improbable.Quaternionf brotation = 8;
 }
 
 component ServerTransform {
@@ -23,4 +26,7 @@ component ServerTransform {
 
     improbable.Vector3f rposition = 5;
     improbable.Quaternionf rrotation = 6;
+
+    improbable.Vector3f bposition = 7;
+    improbable.Quaternionf brotation = 8;
 }

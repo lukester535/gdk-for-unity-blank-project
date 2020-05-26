@@ -64,7 +64,9 @@ public class PlayerMovementServer : MonoBehaviour
                 Lposition = playerTransformReader.Data.Lposition,
                 Lrotation = playerTransformReader.Data.Lrotation,
                 Rposition = playerTransformReader.Data.Rposition,
-                Rrotation = playerTransformReader.Data.Rrotation
+                Rrotation = playerTransformReader.Data.Rrotation,
+                Bposition = playerTransformReader.Data.Rposition,
+                Brotation = playerTransformReader.Data.Rrotation
             };
 
             // Send component update to the SpatialOS Runtime

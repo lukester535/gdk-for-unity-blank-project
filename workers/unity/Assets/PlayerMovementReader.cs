@@ -14,6 +14,7 @@ public class PlayerMovementReader : MonoBehaviour
     public GameObject head;
     public GameObject leftHand;
     public GameObject rightHand;
+    public GameObject body;
 
     void OnEnable()
     {
@@ -63,6 +64,8 @@ public class PlayerMovementReader : MonoBehaviour
             leftHand.transform.rotation = QuatftoQuat(serverTransformReader.Data.Lrotation);
             rightHand.transform.localPosition = Vec3ftoVec3(serverTransformReader.Data.Rposition);
             rightHand.transform.rotation = QuatftoQuat(serverTransformReader.Data.Rrotation);
+            rightHand.transform.localPosition = Vec3ftoVec3(serverTransformReader.Data.Bposition);
+            rightHand.transform.rotation = QuatftoQuat(serverTransformReader.Data.Brotation);
         }
     }
 

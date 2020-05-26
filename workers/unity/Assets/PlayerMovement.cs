@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform camera;
     public Transform leftHand;
     public Transform rightHand;
+    public Transform body;
 
 
     void OnEnable()
@@ -67,7 +68,9 @@ public class PlayerMovement : MonoBehaviour
                 Lposition = Vec3ToVec3f(leftHand.position),
                 Lrotation = QuatToQuatf(leftHand.rotation),
                 Rposition = Vec3ToVec3f(rightHand.position),
-                Rrotation = QuatToQuatf(rightHand.rotation)
+                Rrotation = QuatToQuatf(rightHand.rotation),
+                Bposition = Vec3ToVec3f(body.position),
+                Brotation = QuatToQuatf(body.rotation)
             };
 
             // Send component update to the SpatialOS Runtime
