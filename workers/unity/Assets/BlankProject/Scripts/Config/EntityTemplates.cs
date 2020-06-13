@@ -33,7 +33,7 @@ namespace BlankProject.Scripts.Config
                 .AddQueries<Position.Component>(clientQuery);
             template.AddComponent(interest.ToSnapshot(), serverAttribute);
 
-            template.SetReadAccess(UnityClientConnector.WorkerType, MobileClientWorkerConnector.WorkerType, serverAttribute);
+            template.SetReadAccess(UnityClientConnector.WorkerType, serverAttribute);
             template.SetComponentWriteAccess(EntityAcl.ComponentId, serverAttribute);
 
             return template;

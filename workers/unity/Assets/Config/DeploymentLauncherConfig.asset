@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: DeploymentLauncherConfig
   m_EditorClassIdentifier: 
   AssemblyConfig:
-    ProjectName: unity_gdk
-    AssemblyName: unity_gdk_0529_0000
+    ProjectName: beta_alpha_white_46
+    AssemblyName: firstAssembly
     ShouldForceUpload: 0
   DeploymentConfigs:
-  - ProjectName: unity_gdk
-    AssemblyName: blank_assembly
+  - ProjectName: beta_alpha_white_46
+    AssemblyName: firstAssembly
     Deployment:
-      Name: blank_deployment
+      Name: first_assem
       SnapshotPath: snapshots/default.snapshot
       LaunchJson: cloud_launch.json
-      Region: 1
+      Region: 0
       Tags: []
     SimulatedPlayerDeploymentConfigs: []

@@ -1,0 +1,8 @@
+package spatialos_game;
+import "improbable/vector3.schema";
+
+component BasicObjectTransform {
+    id = 4002;
+    improbable.Vector3f position = 1;
+    improbable.Quaternionf rotation = 2;
+}
