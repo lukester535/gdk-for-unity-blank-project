@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AssemblyConfig:
     ProjectName: beta_alpha_white_46
-    AssemblyName: firstAssembly
+    AssemblyName: beta_test_1.0.3
     ShouldForceUpload: 0
   DeploymentConfigs:
   - ProjectName: beta_alpha_white_46
-    AssemblyName: firstAssembly
+    AssemblyName: beta_test_1.0.3
     Deployment:
-      Name: first_assem
+      Name: beta_test
       SnapshotPath: snapshots/default.snapshot
       LaunchJson: cloud_launch.json
       Region: 0
