@@ -1,4 +1,4 @@
-package improbable;
+package common;
 
 type Vector3f {
   float x = 1;
@@ -17,4 +17,8 @@ type Quaternionf {
   float y = 2;
   float z = 3;
   float w = 4;
+}
+
+type Worker {
+    int32 workerid = 1;
 }

@@ -1,3 +1,4 @@
+using BlankProject.Scripts.Config;
 using System.IO;
 using Improbable;
 using Improbable.Gdk.Core;
@@ -36,6 +37,7 @@ namespace BlankProject.Editor
             var snapshot = new Snapshot();
 
             AddPlayerSpawner(snapshot);
+            AddBasicObject(snapshot, "Basic/Cube", new Vector3(0, 69, 0) );
             return snapshot;
         }
 
@@ -60,6 +62,14 @@ namespace BlankProject.Editor
                 MobileClientWorkerConnector.WorkerType);
             template.SetComponentWriteAccess(EntityAcl.ComponentId, serverAttribute);
 
+            snapshot.AddEntity(template);
+        }
+
+        private static void AddBasicObject(Snapshot snapshot, string ID, Vector3 Vec)
+        {
+            var serverAttribute = UnityGameLogicConnector.WorkerType;
+            var template = EntityTemplates.CreateBasicObject(ID, Vec);
+            template.AddComponent(new Persistence.Snapshot(), serverAttribute);
             snapshot.AddEntity(template);
         }
     }

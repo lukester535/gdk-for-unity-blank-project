@@ -39,6 +39,30 @@ namespace BlankProject.Scripts.Config
             return template;
         }
 
+        public static EntityTemplate CreateBasicObject(string ID, Vector3 Vec)
+        {
+            var serverAttribute = UnityGameLogicConnector.WorkerType;
+            var clientAttribute = UnityClientConnector.WorkerType;
+
+            var template = new EntityTemplate();
+
+            template.AddComponent(new Position.Snapshot(), serverAttribute);
+            template.AddComponent(new SpatialosGame.BasicObjectClient.Snapshot(), serverAttribute);
+            template.AddComponent(new SpatialosGame.BasicObjectAccess.Snapshot(), clientAttribute);
+            template.AddComponent(new SpatialosGame.BasicObjectServer.Snapshot(Vec3ToVec3f(Vec), new Improbable.Quaternionf(), false), serverAttribute);
+            template.AddComponent(new Metadata.Snapshot(ID), serverAttribute);
+
+            template.SetReadAccess(UnityClientConnector.WorkerType, serverAttribute);
+            template.SetComponentWriteAccess(EntityAcl.ComponentId, serverAttribute);
+
+            return template;
+        }
+
+        public static Improbable.Vector3f Vec3ToVec3f(Vector3 Vec)
+        {
+            return new Vector3f(Vec.x, Vec.y, Vec.z);
+        }
+
         /*
         public static EntityTemplate PlayerCreator(EntityId entityId, string workerId, byte[] serializedArguments, Vector3 position, uint healthValue)
         {

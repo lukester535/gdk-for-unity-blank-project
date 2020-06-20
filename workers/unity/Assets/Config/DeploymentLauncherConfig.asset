@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AssemblyConfig:
     ProjectName: beta_alpha_white_46
-    AssemblyName: beta_test_1.0.3
+    AssemblyName: beta_test_1.0.4
     ShouldForceUpload: 0
   DeploymentConfigs:
   - ProjectName: beta_alpha_white_46
-    AssemblyName: beta_test_1.0.3
+    AssemblyName: beta_test_1.0.4
     Deployment:
       Name: beta_test
       SnapshotPath: snapshots/default.snapshot

@@ -1,8 +1,21 @@
 package spatialos_game;
-import "improbable/vector3.schema";
+import "common/common.schema";
 
-component BasicObjectTransform {
+component BasicObjectClient {
     id = 4002;
-    improbable.Vector3f position = 1;
-    improbable.Quaternionf rotation = 2;
+    common.Vector3f position = 1;
+    common.Quaternionf rotation = 2;
+    bool hand = 3;
+}
+
+component BasicObjectServer {
+    id = 4003;
+    common.Vector3f position = 1;
+    common.Quaternionf rotation = 2;
+    bool hand = 3;
+}
+
+component BasicObjectAccess {
+    id = 4004;
+    event common.Worker requestaccess; 
 }

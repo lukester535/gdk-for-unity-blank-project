@@ -1,32 +1,32 @@
 package spatialos_game;
-import "improbable/vector3.schema";
+import "common/common.schema";
 
 component PlayerTransform {
     id = 4000;
-    improbable.Vector3f position = 1;
-    improbable.Quaternionf rotation = 2;
+    common.Vector3f position = 1;
+    common.Quaternionf rotation = 2;
 
-    improbable.Vector3f lposition = 3;
-    improbable.Quaternionf lrotation = 4;
+    common.Vector3f lposition = 3;
+    common.Quaternionf lrotation = 4;
 
-    improbable.Vector3f rposition = 5;
-    improbable.Quaternionf rrotation = 6;
+    common.Vector3f rposition = 5;
+    common.Quaternionf rrotation = 6;
 
-    improbable.Vector3f bposition = 7;
-    improbable.Quaternionf brotation = 8;
+    common.Vector3f bposition = 7;
+    common.Quaternionf brotation = 8;
 }
 
 component ServerTransform {
     id = 4001;
-    improbable.Vector3f position = 1;
-    improbable.Quaternionf rotation = 2;
+    common.Vector3f position = 1;
+    common.Quaternionf rotation = 2;
 
-    improbable.Vector3f lposition = 3;
-    improbable.Quaternionf lrotation = 4;
+    common.Vector3f lposition = 3;
+    common.Quaternionf lrotation = 4;
 
-    improbable.Vector3f rposition = 5;
-    improbable.Quaternionf rrotation = 6;
+    common.Vector3f rposition = 5;
+    common.Quaternionf rrotation = 6;
 
-    improbable.Vector3f bposition = 7;
-    improbable.Quaternionf brotation = 8;
+    common.Vector3f bposition = 7;
+    common.Quaternionf brotation = 8;
 }
